@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosé Beauty | Maquillaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crema: #fff7f3;
+      --rosa: #f6d5d8;
+      --rosa-fuerte: #d9667f;
+      --vino: #5a1f33;
+      --nude: #e8c9b8;
+      --salvia: #dfe8dc;
+      --titulo: 'Cormorant Garamond', Georgia, serif;
+      --texto: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--texto); background: var(--crema); color: var(--vino); line-height: 1.7; }
+
+    /* ---------- Cabecera centrada ---------- */
+    .cabecera { text-align: center; padding: 22px 5% 0; }
+    .anuncio { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rosa-fuerte); margin-bottom: 10px; }
+    .marca { font-family: var(--titulo); font-size: clamp(2.4rem, 7vw, 4rem); font-style: italic; font-weight: 600; letter-spacing: 1px; text-decoration: none; color: var(--vino); }
+    .marca span { color: var(--rosa-fuerte); }
+    nav { position: sticky; top: 0; z-index: 20; background: var(--crema); display: flex; justify-content: center; align-items: center; gap: 6px 34px; flex-wrap: wrap; padding: 14px 5%; border-bottom: 1px solid var(--rosa); margin-top: 10px; }
+    nav a { color: var(--vino); text-decoration: none; font-weight: 500; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer; }
+    nav a:hover { color: var(--rosa-fuerte); }
+    .bolsa { background: var(--vino); color: #fff; border-radius: 30px; padding: 5px 16px; font-size: 0.85rem; }
+
+    /* ---------- Portada con arcos ---------- */
+    .portada { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; max-width: 1150px; margin: 0 auto; padding: 60px 5% 70px; }
+    .portada .creador { font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rosa-fuerte); margin-bottom: 14px; }
+    .portada h1 { font-family: var(--titulo); font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1.02; font-weight: 500; margin-bottom: 20px; }
+    .portada h1 em { color: var(--rosa-fuerte); }
+    .portada p { max-width: 430px; margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--vino); color: #fff; border: 2px solid var(--vino); padding: 13px 32px; border-radius: 40px; font-family: var(--texto); font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; cursor: pointer; text-decoration: none; transition: .25s; }
+    .btn:hover { background: var(--rosa-fuerte); border-color: var(--rosa-fuerte); }
+    .btn.suave { background: transparent; color: var(--vino); margin-left: 8px; }
+    .btn.suave:hover { background: var(--vino); color: #fff; border-color: var(--vino); }
+    .arcos { position: relative; height: 480px; }
+    .arco { position: absolute; border-radius: 200px 200px 14px 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .arco img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .arco.a1 { width: 56%; height: 82%; left: 0; bottom: 0; background: var(--rosa); }
+    .arco.a2 { width: 46%; height: 62%; right: 0; top: 0; background: var(--nude); }
+    .sello { position: absolute; right: 6%; bottom: 4%; width: 110px; height: 110px; border-radius: 50%; background: var(--rosa-fuerte); color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--titulo); font-style: italic; font-size: 1.05rem; line-height: 1.15; transform: rotate(-12deg); z-index: 3; }
+
+    /* ---------- Banda de promesas ---------- */
+    .promesas { background: var(--rosa); display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 50px; padding: 22px 5%; font-weight: 600; font-size: 0.9rem; }
+
+    /* ---------- Historia ---------- */
+    .historia { max-width: 1000px; margin: 0 auto; padding: 90px 5%; text-align: center; }
+    .sobre { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--rosa-fuerte); margin-bottom: 10px; }
+    h2.titulo { font-family: var(--titulo); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 500; line-height: 1.15; margin-bottom: 22px; }
+    h2.titulo em { color: var(--rosa-fuerte); }
+    .historia p { max-width: 720px; margin: 0 auto 14px; }
+    .historia .cita { font-family: var(--titulo); font-style: italic; font-size: 1.5rem; color: var(--rosa-fuerte); margin-top: 28px; }
+
+    /* ---------- Idea del proyecto ---------- */
+    .idea { background: var(--salvia); padding: 70px 5%; }
+    .idea .caja { max-width: 900px; margin: 0 auto; text-align: center; }
+    .idea h2 { font-family: var(--titulo); font-size: 2.3rem; font-weight: 500; font-style: italic; margin-bottom: 14px; }
+    .idea p { margin-bottom: 10px; }
+
+    /* ---------- Categorías ---------- */
+    .categorias { max-width: 1100px; margin: 0 auto; padding: 90px 5% 60px; text-align: center; }
+    .circulos { display: flex; flex-wrap: wrap; justify-content: center; gap: 35px; margin-top: 35px; }
+    .circulo { background: none; border: none; cursor: pointer; font-family: var(--texto); color: var(--vino); }
+    .circulo .disco { display: flex; align-items: center; justify-content: center; width: 140px; height: 140px; border-radius: 50%; font-size: 3.4rem; margin: 0 auto 14px; border: 3px solid transparent; transition: .25s; }
+    .circulo:nth-child(1) .disco { background: var(--rosa); }
+    .circulo:nth-child(2) .disco { background: var(--nude); }
+    .circulo:nth-child(3) .disco { background: var(--salvia); }
+    .circulo:nth-child(4) .disco { background: #ead9ee; }
+    .circulo:hover .disco { border-color: var(--rosa-fuerte); transform: scale(1.07); }
+    .circulo h3 { font-family: var(--titulo); font-size: 1.5rem; font-weight: 600; font-style: italic; }
+
+    /* ---------- Catálogo ---------- */
+    .catalogo { display: none; max-width: 1150px; margin: 0 auto; padding: 60px 5% 90px; text-align: center; }
+    .catalogo.visible { display: block; }
+    .pildoras { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 25px 0 45px; }
+    .pildora { background: transparent; border: 1.5px solid var(--vino); color: var(--vino); border-radius: 40px; padding: 8px 22px; font-family: var(--texto); font-weight: 500; font-size: 0.9rem; cursor: pointer; transition: .2s; }
+    .pildora:hover { border-color: var(--rosa-fuerte); color: var(--rosa-fuerte); }
+    .pildora.activo { background: var(--rosa-fuerte); border-color: var(--rosa-fuerte); color: #fff; }
+    .rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 45px 28px; }
+    .item { text-align: center; }
+    .item .foto { position: relative; height: 280px; border-radius: 140px 140px 12px 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; margin-bottom: 16px; transition: transform .3s; }
+    .item:hover .foto { transform: translateY(-6px); }
+    .item .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .item h3 { font-family: var(--titulo); font-size: 1.35rem; font-weight: 600; line-height: 1.2; }
+    .item .tipo { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: #a98592; }
+    .tonos { display: flex; justify-content: center; gap: 7px; margin: 10px 0; }
+    .tonos i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #d8c3c9; }
+    .item .precio { font-weight: 600; font-size: 1.05rem; margin-bottom: 10px; }
+    .item button { background: transparent; border: 1.5px solid var(--vino); color: var(--vino); border-radius: 30px; padding: 7px 20px; font-family: var(--texto); font-weight: 600; font-size: 0.82rem; cursor: pointer; transition: .2s; }
+    .item button:hover { background: var(--vino); color: #fff; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--vino); color: #f1dde2; text-align: center; padding: 70px 5% 25px; }
+    footer .marca { color: #fff; font-size: 2.6rem; }
+    footer .lema { font-family: var(--titulo); font-style: italic; font-size: 1.3rem; color: var(--rosa); margin-bottom: 35px; }
+    .contacto { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px 50px; margin-bottom: 30px; }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { color: var(--rosa); }
+    footer small { display: block; color: #b98a99; border-top: 1px solid rgba(255,255,255,.15); padding-top: 20px; }
+
+    @media (max-width: 800px) {
+      .portada { grid-template-columns: 1fr; text-align: center; }
+      .portada p { margin-left: auto; margin-right: auto; }
+      .arcos { height: 380px; }
+      .btn.suave { margin: 10px 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cabecera">
+    <p class="anuncio">Envíos gratis desde $120.000</p>
+    <a class="marca" href="#inicio">Rosé <span>Beauty</span></a>
+  </div>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#historia">Nuestra historia</a>
+    <a href="#categorias">Categorías</a>
+    <a onclick="mostrarCatalogo('Todo')">Catálogo</a>
+    <a href="#contacto">Contacto</a>
+    <span class="bolsa">🛍️ Bolsa (<span id="contador">0</span>)</span>
+  </nav>
+
+  <header class="portada" id="inicio">
+    <div>
+      <p class="creador">Creado por: Ana Sofía Zapata 11-5</p>
+      <h1>Tu belleza,<br><em>a tu manera</em></h1>
+      <p>Maquillaje con fórmulas suaves, tonos para todas las pieles y colores que se sienten como tú.</p>
+      <button class="btn" onclick="mostrarCatalogo('Todo')">Conoce nuestro catálogo</button>
+      <a class="btn suave" href="#historia">Nuestra historia</a>
+    </div>
+    <div class="arcos">
+      <div class="arco a1"><span>💄</span><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800" alt="Productos de maquillaje" onerror="this.remove()"></div>
+      <div class="arco a2"><span>🌸</span><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600" alt="Brochas y colores" onerror="this.remove()"></div>
+      <div class="sello">100%<br>cruelty<br>free</div>
+    </div>
+  </header>
+
+  <div class="promesas">
+    <span>🐰 Libre de crueldad animal</span>
+    <span>🌿 Ingredientes suaves</span>
+    <span>🎨 +40 tonos</span>
+    <span>📦 Envíos a todo el país</span>
+  </div>
+
+  <section class="historia" id="historia">
+    <p class="sobre">Nuestra historia</p>
+    <h2 class="titulo">Todo empezó con un <em>labial rosado</em> y una pregunta</h2>
+    <p>Rosé Beauty nació en 2019 en Medellín, cuando dos amigas se dieron cuenta de que era muy difícil encontrar maquillaje bonito, accesible y que de verdad sirviera para todos los tonos de piel.</p>
+    <p>Empezaron mezclando tonos en la cocina y vendiendo a sus amigas. Hoy creamos productos con fórmulas suaves, sin pruebas en animales, pensados para que cada persona se sienta cómoda y segura con su propia belleza.</p>
+    <p class="cita">“Maquillarse es una forma de jugar, no de esconderse.”</p>
+  </section>
+
+  <section class="idea">
+    <div class="caja">
+      <h2>Idea del proyecto</h2>
+      <p>Rosé Beauty es una tienda de maquillaje en línea donde las clientas pueden ver el catálogo, elegir su tono favorito y armar su bolsa de compras desde el celular o el computador.</p>
+      <p>La idea es construir la página en <strong>React</strong>, con componentes para el catálogo, el selector de tonos y el carrito de compras.</p>
+    </div>
+  </section>
+
+  <section class="categorias" id="categorias">
+    <p class="sobre">Explora</p>
+    <h2 class="titulo">Nuestras <em>categorías</em></h2>
+    <div class="circulos">
+      <button class="circulo" onclick="mostrarCatalogo('Labios')"><div class="disco">💄</div><h3>Labios</h3></button>
+      <button class="circulo" onclick="mostrarCatalogo('Rostro')"><div class="disco">🧴</div><h3>Rostro</h3></button>
+      <button class="circulo" onclick="mostrarCatalogo('Ojos')"><div class="disco">👁️</div><h3>Ojos</h3></button>
+      <button class="circulo" onclick="mostrarCatalogo('Uñas')"><div class="disco">💅</div><h3>Uñas</h3></button>
+    </div>
+  </section>
+
+  <section class="catalogo" id="catalogo">
+    <p class="sobre">Catálogo</p>
+    <h2 class="titulo">Elige tu <em>favorito</em></h2>
+    <div class="pildoras" id="filtros"></div>
+    <div class="rejilla" id="productos"></div>
+  </section>
+
+  <footer id="contacto">
+    <a class="marca" href="#inicio">Rosé Beauty</a>
+    <p class="lema">Belleza sin complicaciones</p>
+    <div class="contacto">
+      <span>📧 <a href="mailto:hola@rosebeauty.com">hola@rosebeauty.com</a></span>
+      <span>📱 +57 300 000 0000</span>
+      <span>📍 Medellín, Colombia</span>
+      <span>🕒 Lunes a sábado: 9:00 am – 7:00 pm</span>
+    </div>
+    <small>© 2026 Rosé Beauty. Todos los derechos reservados.</small>
+  </footer>
+
+  <script>
+    const U = id => `https://images.unsplash.com/photo-${id}?w=500&h=650&fit=crop`;
+
+    // Fotos de Unsplash. Si alguna no carga, se muestra el emoji.
+    // Para usar fotos propias, cambia el "img" por una ruta local (ej. 'img/labial.jpg').
+    const productos = [
+      { nombre: 'Labial Mate Rosé', tipo: 'Labios', precio: 38000, tonos: ['#d9667f', '#b5445e', '#e89aa8'], fondo: '#f6d5d8', emoji: '💄', img: U('1586495777744-4413f21062fa') },
+      { nombre: 'Gloss Cristal', tipo: 'Labios', precio: 32000, tonos: ['#f4b6c0', '#e8947f', '#f0d3c8'], fondo: '#f9e3e0', emoji: '💋', img: U('1631214524020-7e18db9a8f92') },
+      { nombre: 'Tinta de Labios', tipo: 'Labios', precio: 35000, tonos: ['#c93a50', '#9c2840', '#e0707f'], fondo: '#f2c9cf', emoji: '💄', img: U('1625093742435-6fa192b6fb10') },
+      { nombre: 'Base Líquida Natural', tipo: 'Rostro', precio: 65000, tonos: ['#f1d3bd', '#d9a982', '#9c6a4a'], fondo: '#e8c9b8', emoji: '🧴', img: U('1631730359585-38a4935cbec4') },
+      { nombre: 'Rubor en Polvo', tipo: 'Rostro', precio: 42000, tonos: ['#f0a1ae', '#e07a8a', '#d98f6e'], fondo: '#f6d5d8', emoji: '🌸', img: U('1512496015851-a90fb38ba796') },
+      { nombre: 'Iluminador Dorado', tipo: 'Rostro', precio: 48000, tonos: ['#f2dcb0', '#e6c58a', '#f0cfc0'], fondo: '#f3e6cf', emoji: '✨', img: U('1599733589046-9b8e1a9c5b0f') },
+      { nombre: 'Paleta de Sombras Atardecer', tipo: 'Ojos', precio: 78000, tonos: ['#d98f6e', '#a8556b', '#5a1f33'], fondo: '#ead9ee', emoji: '🎨', img: U('1583241475880-083f84372725') },
+      { nombre: 'Máscara de Pestañas', tipo: 'Ojos', precio: 36000, tonos: ['#1b1b1b', '#4a2c2a'], fondo: '#dfe8dc', emoji: '👁️', img: U('1631214499569-9c1d8e6a4b3f') },
+      { nombre: 'Delineador Líquido', tipo: 'Ojos', precio: 29000, tonos: ['#1b1b1b', '#3b2a5a', '#1f4a3a'], fondo: '#e4e9f0', emoji: '🖊️', img: U('1503236823255-94609f598e71') },
+      { nombre: 'Esmalte Rosa Pastel', tipo: 'Uñas', precio: 18000, tonos: ['#f6c6d0', '#f0a1ae', '#fff1ee'], fondo: '#f9e3e0', emoji: '💅', img: U('1604654894610-df63bc536371') },
+      { nombre: 'Esmalte Rojo Cereza', tipo: 'Uñas', precio: 18000, tonos: ['#a8203a', '#c93a50', '#7a1428'], fondo: '#f2c9cf', emoji: '💅', img: U('1610992015732-2449b76344bc') },
+      { nombre: 'Set de Esmaltes Nude', tipo: 'Uñas', precio: 52000, tonos: ['#e8c9b8', '#d9a982', '#f0d3c8'], fondo: '#e8c9b8', emoji: '🎀', img: U('1519014816548-bf5fe059798b') }
+    ];
+
+    const categorias = ['Todo', 'Labios', 'Rostro', 'Ojos', 'Uñas'];
+    const formato = n => '$' + n.toLocaleString('es-CO');
+    let enBolsa = 0;
+
+    function agregar(btn) {
+      enBolsa++;
+      document.getElementById('contador').textContent = enBolsa;
+      btn.textContent = '✓ Agregado';
+      setTimeout(() => btn.textContent = 'Agregar a la bolsa', 1200);
+    }
+
+    function mostrarCatalogo(filtro) {
+      document.getElementById('catalogo').classList.add('visible');
+
+      document.getElementById('filtros').innerHTML = categorias.map(c =>
+        `<button class="pildora ${c === filtro ? 'activo' : ''}" onclick="mostrarCatalogo('${c}')">${c}</button>`
+      ).join('');
+
+      const lista = filtro === 'Todo' ? productos : productos.filter(p => p.tipo === filtro);
+      document.getElementById('productos').innerHTML = lista.map(p => `
+        <article class="item">
+          <div class="foto" style="background:${p.fondo}">
+            <span>${p.emoji}</span>
+            <img src="${p.img}" alt="${p.nombre}" onerror="this.remove()">
+          </div>
+          <div class="tipo">${p.tipo}</div>
+          <h3>${p.nombre}</h3>
+          <div class="tonos">${p.tonos.map(t => `<i style="background:${t}"></i>`).join('')}</div>
+          <div class="precio">${formato(p.precio)}</div>
+          <button onclick="agregar(this)">Agregar a la bolsa</button>
+        </article>`).join('');
+
+      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
